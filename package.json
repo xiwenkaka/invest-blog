@@ -1,5 +1,5 @@
 {
-  "name": "投资博客",
+  "name": "invest-blog",
   "version": "1.0.0",
   "description": "xiwenkaka 的投资笔记博客",
   "scripts": {
@@ -11,10 +11,9 @@
     "generate": "hexo generate",
     "deploy": "hexo deploy"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "hexo": "^6.3.0",
-    "hexo-theme-butterfly": "^4.0.0",
-    "hexo-deployer-git": "^3.0.0"
+    "hexo-deployer-git": "^3.0.0",
+    "hexo-theme-butterfly": "^4.0.0"
   }
 }
