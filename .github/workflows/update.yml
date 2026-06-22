@@ -37,6 +37,7 @@ jobs:
           node-version: '18'
       
       - name: Install Hexo and generate
+        working-directory: /home/runner/work/invest-blog/invest-blog
         run: |
           npm install
           npx hexo generate
