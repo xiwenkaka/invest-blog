@@ -2,7 +2,7 @@ name: Auto Update Blog
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
         run: |
-          cd scripts && ls -la
+          cd scripts
           python fetch_stocks.py || echo "stocks done"
           python fetch_industry.py || echo "industry done"
           python fetch_shipping.py || echo "shipping done"
@@ -37,13 +37,11 @@ jobs:
           node-version: '18'
       
       - name: Install Hexo and generate
-        working-directory: /home/runner/work/invest-blog/invest-blog
         run: |
-          npm cache clean --force
-          rm -rf node_modules package-lock.json
+          cd ${{ github.workspace }}
           npm install
-          ./node_modules/.bin/hexo generate --debug 2>&1 || echo "generate failed"
-          ls -la public/ 2>&1 || echo "no public"
+          ./node_modules/.bin/hexo generate
+          ls -la public/
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
