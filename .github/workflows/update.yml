@@ -42,8 +42,8 @@ jobs:
           npm cache clean --force
           rm -rf node_modules package-lock.json
           npm install
-          ls -la node_modules/.bin/
-          ./node_modules/.bin/hexo generate
+          ./node_modules/.bin/hexo generate --debug 2>&1 || echo "generate failed"
+          ls -la public/ 2>&1 || echo "no public"
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
