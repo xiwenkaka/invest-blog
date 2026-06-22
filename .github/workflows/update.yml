@@ -26,26 +26,21 @@ jobs:
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
         run: |
-          cd scripts && pwd && ls -la
-          python fetch_stocks.py || echo "stocks skipped"
-          python fetch_industry.py || echo "industry skipped"
-          python fetch_shipping.py || echo "shipping skipped"
+          cd scripts && ls -la
+          python fetch_stocks.py || echo "stocks done"
+          python fetch_industry.py || echo "industry done"
+          python fetch_shipping.py || echo "shipping done"
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
       
-      - name: Install Hexo
+      - name: Install Hexo and generate
         run: |
-          npm install -g hexo-cli
           npm install
-          npm install hexo-theme-butterfly
-          npm install hexo-deployer-git
-      
-      - name: Generate site
-        run: |
-          hexo generate || echo "generate skipped"
+          npx hexo generate
+          ls -la public/
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
