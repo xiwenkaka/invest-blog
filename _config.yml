@@ -1,0 +1,16 @@
+{
+  "title": "投资笔记",
+  "subtitle": "投资心得 | 股票跟踪 | 行业观察",
+  "author": "xiwenkaka",
+  "language": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "url": "https://xiwenkaka.github.io",
+  "root": "/",
+  "permalink": ":year/:month/:day/:title/",
+  "theme": "butterfly",
+  "deploy": {
+    "type": "git",
+    "repo": "https://github.com/xiwenkaka/invest-blog.git",
+    "branch": "gh-pages"
+  }
+}

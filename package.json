@@ -1,0 +1,20 @@
+{
+  "name": "投资博客",
+  "version": "1.0.0",
+  "description": "xiwenkaka 的投资笔记博客",
+  "scripts": {
+    "update-stocks": "cd scripts && python fetch_stocks.py",
+    "update-industry": "cd scripts && python fetch_industry.py",
+    "update-shipping": "cd scripts && python fetch_shipping.py",
+    "update-all": "cd scripts && python fetch_stocks.py && python fetch_industry.py && python fetch_shipping.py",
+    "server": "hexo server",
+    "generate": "hexo generate",
+    "deploy": "hexo deploy"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "hexo": "^6.3.0",
+    "hexo-theme-butterfly": "^4.0.0",
+    "hexo-deployer-git": "^3.0.0"
+  }
+}
