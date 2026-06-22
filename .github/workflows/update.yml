@@ -39,9 +39,11 @@ jobs:
       - name: Install Hexo and generate
         working-directory: /home/runner/work/invest-blog/invest-blog
         run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
           npm install
+          ls -la node_modules/.bin/
           ./node_modules/.bin/hexo generate
-          ls -la public/
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
