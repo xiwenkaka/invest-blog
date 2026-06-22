@@ -40,7 +40,7 @@ jobs:
         working-directory: /home/runner/work/invest-blog/invest-blog
         run: |
           npm install
-          npx hexo generate
+          ./node_modules/.bin/hexo generate
           ls -la public/
       
       - name: Deploy
